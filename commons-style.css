@@ -79,7 +79,7 @@ footer >span {
 }
 
 .page-overlay {
-    background-image: url(../img/main.jpg);
+    background-image: url(./img/main.jpg);
     background-size: cover;
     height: 140vh; 
 }
