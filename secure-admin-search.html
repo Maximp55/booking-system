@@ -27,6 +27,7 @@
         </style>
     </head>
     <body>
+        <div id="page-loader"><div class="spinner"></div></div>
         <div class="page-container">
             <div class="page-overlay">
                 <header>
@@ -63,6 +64,7 @@
                     <div class="container-form mt-5">  
                         <div class="container-view">       
                             <h1>Search Results</h1>   
+                            <div class="table-responsive-wrapper">
                             <table>
                                 <tr>
                                     <th>ID</th>
@@ -81,6 +83,7 @@
                                     <td>user</td>
                                 </tr>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </main>
@@ -94,6 +97,15 @@
                 event.preventDefault();
                 alert('Search completed! Results shown below.');
             }
+        </script>
+        <script>
+        (function(){
+            var loader = document.getElementById('page-loader');
+            var img = new Image();
+            img.onload = img.onerror = function(){ loader.classList.add('loaded'); };
+            img.src = './img/main.jpg';
+            setTimeout(function(){ loader.classList.add('loaded'); }, 5000);
+        })();
         </script>
     </body>
 </html>

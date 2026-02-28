@@ -24,14 +24,10 @@
             .container-view h1 {
                 text-align: center;
             }
-            .page-overlay2 {
-                background-image: url(./img/main.jpg);
-                background-size: cover;
-                min-height: 140vh; 
-            }
         </style>
     </head>
     <body>
+        <div id="page-loader"><div class="spinner"></div></div>
         <div class="page-container">
             <div class="page-overlay2">
                 <header>
@@ -58,6 +54,7 @@
                     <div class="container-form">
                         <div class="container-view">            
                             <h1>View Registered Users</h1>   
+                            <div class="table-responsive-wrapper">
                             <table>
                                 <tr>
                                     <th>ID</th>
@@ -116,11 +113,13 @@
                                     <td>user</td>
                                 </tr>
                             </table>
+                            </div>
                         </div>
                     </div>
                     <div class="container-form mt-2">
                         <div class="container-view">
                             <h1>View Events</h1>   
+                            <div class="table-responsive-wrapper">
                             <table>
                                 <tr>
                                     <th>ID</th>
@@ -153,6 +152,7 @@
                                     <td>25</td>
                                 </tr>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </main>
@@ -161,5 +161,14 @@
                 <span> copy right for ABDUL BAQI</span>
             </footer>
         </div>
+        <script>
+        (function(){
+            var loader = document.getElementById('page-loader');
+            var img = new Image();
+            img.onload = img.onerror = function(){ loader.classList.add('loaded'); };
+            img.src = './img/main.jpg';
+            setTimeout(function(){ loader.classList.add('loaded'); }, 5000);
+        })();
+        </script>
     </body>
 </html>

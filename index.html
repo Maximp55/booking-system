@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
+        <div id="page-loader"><div class="spinner"></div></div>
         <div class="page-container">
             <div class="page-overlay">
                 <header>
@@ -32,7 +33,7 @@
                     </div>
                 </header>
                 <div class="header-body text-center" style="font-family:Verdana, Geneva, Tahoma, sans-serif">
-                    <div class="card bg-dark text-white p-5 my-5" style="width: 50%; margin: auto; color: aliceblue;">
+                    <div class="card bg-dark text-white p-5 my-5 hero-card" style="color: aliceblue;">
                         <div class="card-body">
                             <h2 class="card-title">Lock, load, and secure your spot in the ultimate adrenaline rush!</h2>
                             <p class="card-text text-center">Join us for the most thrilling paintball event of the year!</p>
@@ -95,5 +96,15 @@
                 <span> copy right for ABDUL BAQI</span>
             </footer>
         </div>
+        <script>
+        (function(){
+            var loader = document.getElementById('page-loader');
+            var sources = ['./img/main.jpg','./img/img1.jpg','./img/img2.png','./img/img3.jpeg'];
+            var loaded = 0;
+            function check(){ if(++loaded >= sources.length) loader.classList.add('loaded'); }
+            sources.forEach(function(s){ var i = new Image(); i.onload = i.onerror = check; i.src = s; });
+            setTimeout(function(){ loader.classList.add('loaded'); }, 5000);
+        })();
+        </script>
     </body>
 </html>

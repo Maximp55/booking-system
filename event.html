@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="./commons-style.css">
     </head>
     <body>
+        <div id="page-loader"><div class="spinner"></div></div>
         <div class="page-container">
             <div class="page-overlay">
                 <header>
@@ -68,6 +69,15 @@
                 alert('Event registered successfully! Redirecting to profile...');
                 window.location.href = './user_profile.html';
             }
+        </script>
+        <script>
+        (function(){
+            var loader = document.getElementById('page-loader');
+            var img = new Image();
+            img.onload = img.onerror = function(){ loader.classList.add('loaded'); };
+            img.src = './img/main.jpg';
+            setTimeout(function(){ loader.classList.add('loaded'); }, 5000);
+        })();
         </script>
     </body>
 </html>

@@ -7,15 +7,9 @@
         <title>User Profile</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="./commons-style.css">
-        <style>
-            .page-overlay2 {
-                background-image: url(./img/main.jpg);
-                background-size: cover;
-                min-height: 140vh; 
-            }
-        </style>
     </head>
     <body>
+        <div id="page-loader"><div class="spinner"></div></div>
         <div class="page-container page-overlay2">
             <header>
                 <div class="row" >
@@ -95,6 +89,15 @@
                 alert('Profile updated successfully!');
                 window.location.href = './user.html';
             });
+        </script>
+        <script>
+        (function(){
+            var loader = document.getElementById('page-loader');
+            var img = new Image();
+            img.onload = img.onerror = function(){ loader.classList.add('loaded'); };
+            img.src = './img/main.jpg';
+            setTimeout(function(){ loader.classList.add('loaded'); }, 5000);
+        })();
         </script>
     </body>
 </html>
